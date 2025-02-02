@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:paypal_payment_method_app/core/util/app_images/app_images.dart';
-import 'package:paypal_payment_method_app/core/util/functions/navigate_to.dart';
 import 'package:paypal_payment_method_app/features/my_cart_feature/presentation/views/widgets/custom_button.dart';
+import 'package:paypal_payment_method_app/features/my_cart_feature/presentation/views/widgets/custom_payment_bottom_sheet.dart';
 import 'package:paypal_payment_method_app/features/my_cart_feature/presentation/views/widgets/order_info_item.dart';
 import 'package:paypal_payment_method_app/features/my_cart_feature/presentation/views/widgets/total_item_price.dart';
-import 'package:paypal_payment_method_app/features/payment_details_feature/presentation/views/payment_details_view.dart';
 
 class MyCartViewBody extends StatelessWidget {
   const MyCartViewBody({super.key});
@@ -38,9 +37,14 @@ class MyCartViewBody extends StatelessWidget {
           const SizedBox(height: 16.0),
           CustomButton(
             title: "Complete Payment",
-            onPressed: () {
-              navigateTo(context, const PaymentDetailsView());
-            },
+            onPressed: () => showBottomSheet(
+              context: context,
+              backgroundColor: Colors.cyanAccent,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              builder: (context) => const CustomPaymentBottomSheet(),
+            ),
           ),
           const SizedBox(height: 20.0),
         ],

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:paypal_payment_method_app/core/util/functions/navigate_to.dart';
 import 'package:paypal_payment_method_app/features/my_cart_feature/presentation/views/widgets/custom_button.dart';
 import 'package:paypal_payment_method_app/features/payment_details_feature/presentation/views/widgets/custom_credit_card.dart';
 import 'package:paypal_payment_method_app/features/payment_details_feature/presentation/views/widgets/custom_payment_options.dart';
+import 'package:paypal_payment_method_app/features/thank_you_feature/presentation/views/thank_you_view.dart';
 
 class PaymentDetailsViewBody extends StatefulWidget {
   const PaymentDetailsViewBody({super.key});
@@ -34,6 +36,7 @@ class _PaymentDetailsViewBodyState extends State<PaymentDetailsViewBody> {
                   title: "Pay",
                   onPressed: () {
                     if (formKey.currentState!.validate()) {}
+                    navigateTo(context, const ThankYouView());
                   }),
             ),
           )

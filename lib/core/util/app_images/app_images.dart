@@ -18,6 +18,10 @@ class AppImages {
   /// assets/images/basket_image.png
   static const String imagesBasketImage = "assets/images/basket_image.png";
 
+  /// Assets for imagesMasterCard
+  /// assets/images/master_card.svg
+  static const String imagesMasterCard = "assets/images/master_card.svg";
+
   /// Assets for imagesPaypal
   /// assets/images/paypal.svg
   static const String imagesPaypal = "assets/images/paypal.svg";
