@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:payment_methods/core/util/api_services/api_keys.dart';
 import 'package:payment_methods/core/util/api_services/api_services.dart';
@@ -8,6 +9,7 @@ class StripeService {
   Future<PaymentIntentModel> createPaymentIntent(
       PaymentIntentInputModel model) async {
     var response = await ApiServices().postData(
+        contentType: Headers.formUrlEncodedContentType,
         parameters: model.toJson(),
         url: ApiKeys.createIntentUrl,
         token: ApiKeys.secretkey);
