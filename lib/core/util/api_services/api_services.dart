@@ -7,15 +7,17 @@ class ApiServices {
     required String url,
     required String token,
     String? contentType,
+    Map<String, dynamic>? headers,
   }) async {
     var response = await dio.post(
       url,
       queryParameters: parameters,
       options: Options(
         contentType: contentType,
-        headers: {
-          "Authorization": "Bearer $token",
-        },
+        headers: headers ??
+            {
+              "Authorization": "Bearer $token",
+            },
       ),
     );
     return response;
