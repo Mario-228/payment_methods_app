@@ -32,7 +32,10 @@ class CustomPayButtonBlocConsumer extends StatelessWidget {
             return CustomButton(
               title: "Pay",
               onPressed: () => CheckoutCubit.get(context).makePayment(
-                  PaymentIntentInputModel(amount: "10000", currency: "usd")),
+                  PaymentIntentInputModel(
+                      amount: "10000",
+                      currency: "usd",
+                      customerId: "cus_S2PqeC41EYmDFd")),
             );
           }
         },
