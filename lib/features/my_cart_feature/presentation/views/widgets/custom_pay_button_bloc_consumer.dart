@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:payment_methods/core/util/functions/navigate_to.dart';
 import 'package:payment_methods/core/util/functions/show_snack_bar';
 import 'package:payment_methods/core/util/models/payment_intent_input_model/payment_intent_input_model.dart';
-import 'package:payment_methods/features/my_cart_feature/data/cubit/checkout_cubit/checkout_cubit.dart';
-import 'package:payment_methods/features/my_cart_feature/data/cubit/checkout_cubit/checkout_states.dart';
+import 'package:payment_methods/features/my_cart_feature/presentation/views_models/cubit/checkout_cubit/checkout_cubit.dart';
+import 'package:payment_methods/features/my_cart_feature/presentation/views_models/cubit/checkout_cubit/checkout_states.dart';
 import 'package:payment_methods/features/my_cart_feature/presentation/views/widgets/custom_button.dart';
 import 'package:payment_methods/features/thank_you_feature/presentation/views/thank_you_view.dart';
 
@@ -32,7 +32,10 @@ class CustomPayButtonBlocConsumer extends StatelessWidget {
             return CustomButton(
               title: "Pay",
               onPressed: () => CheckoutCubit.get(context).makePayment(
-                  PaymentIntentInputModel(amount: "10000", currency: "usd")),
+                  PaymentIntentInputModel(
+                      amount: "10000",
+                      currency: "usd",
+                      customerId: "cus_S2PqeC41EYmDFd")),
             );
           }
         },
