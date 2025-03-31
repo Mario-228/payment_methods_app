@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:payment_methods/core/util/functions/navigate_to.dart';
 import 'package:payment_methods/core/util/functions/show_snack_bar';
 import 'package:payment_methods/core/util/models/payment_intent_input_model/payment_intent_input_model.dart';
+import 'package:payment_methods/core/util/paymob_service/paymob_service.dart';
 import 'package:payment_methods/core/util/paypal_service/paypal_service.dart';
 import 'package:payment_methods/features/my_cart_feature/presentation/views_models/cubit/checkout_cubit/checkout_cubit.dart';
 import 'package:payment_methods/features/my_cart_feature/presentation/views_models/cubit/checkout_cubit/checkout_states.dart';
@@ -41,8 +42,10 @@ class CustomPayButtonBlocConsumer extends StatelessWidget {
                         currency: "usd",
                         customerId: "cus_S2PqeC41EYmDFd"),
                   );
-                } else {
+                } else if (CustomPaymentOptions.selectedIndex == 1) {
                   PaypalService.createPaypalPayment(context);
+                } else {
+                  PaymobService.payWithCard(context);
                 }
               },
             );

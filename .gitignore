@@ -45,3 +45,4 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 lib/core/util/paypal_service/paypal_keys.dart
+lib/core/util/paymob_service/paymob_keys.dart
