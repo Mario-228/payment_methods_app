@@ -18,6 +18,8 @@ migrate_working_dir/
 *.iws
 .idea/
 lib/core/util/api_services/api_keys.dart
+lib/core/util/paypal_service/paypal_keys.dart
+lib/core/util/paypal_service/paypal_service.dart
 # The .vscode folder contains launch configuration and tasks you configure in
 # VS Code which you may wish to be included in version control, so this line
 # is commented out by default.
