@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
+import 'package:payment_methods/core/util/functions/show_snack_bar';
 import 'package:payment_methods/core/util/paypal_service/paypal_keys.dart';
 
 import '../models/paypal_transaction_model/amount.dart';
@@ -36,7 +37,8 @@ abstract class PaypalService {
       ],
     ),
   );
-  static void checkout(BuildContext context) => Navigator.of(context).push(
+  static void createPaypalPayment(BuildContext context) =>
+      Navigator.of(context).push(
         MaterialPageRoute(
           builder: (BuildContext context) => PaypalCheckoutView(
             sandboxMode: true,
@@ -48,14 +50,15 @@ abstract class PaypalService {
             note: "Contact us for any questions on your order.",
             onSuccess: (Map params) async {
               print("onSuccess: $params");
+              showSnackBar(context, 'Payment Successfull');
+              Navigator.pop(context);
             },
             onError: (error) {
               print("onError: $error");
+              showSnackBar(context, 'Payment Failed');
               Navigator.pop(context);
             },
-            onCancel: () {
-              print('cancelled:');
-            },
+            onCancel: () => showSnackBar(context, 'Payment Cancelled'),
           ),
         ),
       );
